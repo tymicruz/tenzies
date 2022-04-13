@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Block from "./Block"
 
-const Game = () => {
+const Game = (props) => {
 
     const getRandomNumber = () => {
         return Math.floor(Math.random() * 10) + 1
@@ -18,9 +18,28 @@ const Game = () => {
 
     const [blocks, setBlocks] = useState(() => getRandomBlocks())
 
-    const toggleBlock = (id) => {
-        console.log(id)
+    useEffect(() => {
+        const winningNumber = blocks[0].number
 
+        for (let i = 1; i < blocks.length; i++) {
+            if (!blocks[i].isLocked) {
+                props.handleWin(-1)
+                return
+            }
+
+            if (blocks[i].number != winningNumber) {
+                props.handleWin(-1)
+                return
+            }
+        }
+
+        props.handleWin(winningNumber)
+
+    }, [blocks])
+
+
+    console.log("game")
+    const toggleBlock = (id) => {
         setBlocks(prevBlocks => {
             return prevBlocks.map((block, i) => {
                 if (i == id) {
@@ -37,6 +56,9 @@ const Game = () => {
     })
 
     const roll = () => {
+        if (props.playerWon)
+            return
+
         setBlocks(prevBlocks => prevBlocks.map(block => {
             if (!block.isLocked) {
                 return { ...block, number: getRandomNumber() }
@@ -44,6 +66,8 @@ const Game = () => {
                 return block
             }
         }))
+
+        props.handleMoveCount()
     }
 
     return (
@@ -51,7 +75,6 @@ const Game = () => {
             <div className="blocks">
                 {blockElements}
             </div>
-
             <button className="roll--button" onClick={roll}>Roll</button>
         </div>
     )

@@ -10,6 +10,22 @@
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 50px;
+    display: flex;
+}
+
+.header--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header--right {
+  margin-top:auto;
+  margin-bottom: auto;
+  position: absolute;
+  align-content: center;
+  right: 5%;
+  margin-right: 20px;
+  font-size: 1.5em;
 }
 
 .blocks {
@@ -55,4 +71,20 @@
 
 .locked {
     background-color: green;
+}
+
+.blinkblink {
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+  25% {
+    opacity: 0;
+    color: green
+  }
+  50% {
+    opacity: 0;
+    color: rgb(223, 251, 223)
+  }
+
 }
