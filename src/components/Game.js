@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Block from "./Block"
+import { nanoid } from "nanoid"
 
 const Game = (props) => {
 
@@ -11,7 +12,9 @@ const Game = (props) => {
         const randomBlocks = []
 
         for (let i = 0; i < 10; i++) {
-            randomBlocks.push({ "number": getRandomNumber(), "isLocked": false })
+            randomBlocks.push({
+                "number": getRandomNumber(), "isLocked": false, id: nanoid()
+            })
         }
         return randomBlocks
     }
@@ -41,8 +44,8 @@ const Game = (props) => {
     console.log("game")
     const toggleBlock = (id) => {
         setBlocks(prevBlocks => {
-            return prevBlocks.map((block, i) => {
-                if (i == id) {
+            return prevBlocks.map((block) => {
+                if (block.id == id) {
                     return { ...block, isLocked: !block.isLocked }
                 } else {
                     return block
@@ -52,7 +55,7 @@ const Game = (props) => {
     }
 
     const blockElements = blocks.map((block, i) => {
-        return <Block key={i} id={i} number={block.number} isLocked={block.isLocked} handleToggle={toggleBlock} />
+        return <Block key={block.id} id={block.id} number={block.number} isLocked={block.isLocked} handleToggle={toggleBlock} />
     })
 
     const roll = () => {
