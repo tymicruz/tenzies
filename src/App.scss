@@ -79,23 +79,3 @@
     border-radius: 5px;
     background-color: white;
 }
-
-.locked {
-    background-color: green;
-}
-
-.blinkblink {
-  animation: blinker 3s linear infinite;
-}
-
-@keyframes blinker {
-  25% {
-    opacity: 0;
-    color: green
-  }
-  50% {
-    opacity: 0;
-    color: rgb(223, 251, 223)
-  }
-
-}

@@ -105,35 +105,4 @@
   border-radius: 5px;
   background-color: white;
 }
-
-.locked {
-  background-color: green;
-}
-
-.blinkblink {
-  -webkit-animation: blinker 3s linear infinite;
-          animation: blinker 3s linear infinite;
-}
-
-@-webkit-keyframes blinker {
-  25% {
-    opacity: 0;
-    color: green;
-  }
-  50% {
-    opacity: 0;
-    color: #dffbdf;
-  }
-}
-
-@keyframes blinker {
-  25% {
-    opacity: 0;
-    color: green;
-  }
-  50% {
-    opacity: 0;
-    color: #dffbdf;
-  }
-}
 /*# sourceMappingURL=App.css.map */
