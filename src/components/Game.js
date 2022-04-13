@@ -71,12 +71,16 @@ const Game = (props) => {
     }
 
     return (
-        <div className="game">
-            <div className="blocks">
-                {blockElements}
+        <>
+            <div className="game">
+                <div className="blocks">
+                    {blockElements}
+                </div>
+
+
             </div>
             <button className="roll--button" onClick={roll}>Roll</button>
-        </div>
+        </>
     )
 }
 

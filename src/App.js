@@ -43,9 +43,7 @@ function App() {
         <div className='header--right'>
           <p>Move count: {moveCount}</p>
         </div>
-
       </header>
-
       <Game key={reset} playerWon={win} handleWin={playerWins} handleMoveCount={incrementMoveCount} />
     </div>
   );
