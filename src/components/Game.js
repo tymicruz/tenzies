@@ -5,7 +5,7 @@ import { nanoid } from "nanoid"
 const Game = (props) => {
 
     const getRandomNumber = () => {
-        return Math.floor(Math.random() * 10) + 1
+        return Math.floor(Math.random() * 6) + 1
     }
 
     const getRandomBlocks = () => {

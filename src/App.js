@@ -1,6 +1,7 @@
 import './App.css';
 import Game from './components/Game';
 import { useState } from 'react';
+import Confetti from 'react-confetti'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <div className="app">
+      {win && <Confetti />}
       <header className='app--header'>
         <div className='header--center'>
           <h1>{win ? `${winningNumber}s You win!` : "Tenzies"}</h1>
